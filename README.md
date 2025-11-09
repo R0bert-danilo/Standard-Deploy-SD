@@ -20,9 +20,9 @@ A ferramenta é executada com privilégios de administrador e utiliza comandos s
 ## 🛠️ Requisitos
 
 * Sistema Operacional: Windows.
-* Permissões de Administrador (O script solicita automaticamente).
+* Permissões de Administrador (O programa solicita automaticamente).
 
 ## 🚀 Como Executar
 
-1.  Baixe o executável `Standard_Deploy_SD.exe` (Disponível na pasta `dist/` após a compilação).
+1.  Baixe o executável `Standard Deploy SD.exe`
 2.  Execute o arquivo como Administrador e utilize o menu para selecionar as operações desejadas.
