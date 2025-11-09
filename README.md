@@ -1,28 +1,58 @@
-# Standard Deploy (SD) - Ferramenta de Automação e Implantação de Software
+# ⚙️ Standard Deploy (SD) - Framework de Automação de Implantação de Software
 
-Standard Deploy (SD) é um script de automação desenvolvido em Python para ambientes Windows.
+Olá, sou **Robert Danilo**, e este é o Standard Deploy.
 
-O objetivo principal desta ferramenta é **padronizar e agilizar** a instalação e desinstalação de software em lote (em massa) através de uma interface de console interativa.
+## 🧑‍💻 Quem Eu Sou e Objetivo
 
-A ferramenta é executada com privilégios de administrador e utiliza comandos silenciosos (silent install) para garantir que a instalação de múltiplos programas ocorra sem intervenção do usuário.
+Eu sou **aluno de Análise e Desenvolvimento de Sistemas (ADS)** e trabalho na área de **Suporte Técnico N3**. Desenvolvi o Standard Deploy como um projeto prático focado em resolver os desafios de **tempo e padronização** que enfrentamos no dia a dia do suporte.
 
-## ⚙️ Funcionalidades
+Este projeto visa criar uma solução em Python para automatizar a implantação e manutenção de software, reduzindo a intervenção manual e o erro humano. Convido a comunidade a testar e contribuir!
 
-| Ação | Descrição |
+---
+
+## ✨ Visão Geral do Projeto
+
+O Standard Deploy é um utilitário de console (CLI) construído em Python, focado na gestão do ciclo de vida de softwares em sistemas **Windows**. Ele opera com **privilégios de Administrador** para garantir a eficácia dos comandos de **instalação silenciosa** e a manipulação correta do **Registro do Windows** (winreg) para verificar o status de instalação.
+
+### Arquitetura e Módulos Chave
+
+| Módulo | Função Técnica |
 | :--- | :--- |
-| **Instalação em Lote** | Realiza o download e a instalação silenciosa de todos os programas listados. |
-| **Instalação Individual/Seletiva** | Permite selecionar e instalar apenas programas específicos que ainda não estão instalados. |
-| **Desinstalação** | Oferece modos para desinstalação total ou individual de programas. |
-| **Gerenciamento de Lista** | A lista de programas é editável através de um arquivo JSON. O usuário pode adicionar novos programas, editar parâmetros (URL, comandos silenciosos) e remover entradas. |
-| **Verificação de Links** | Checa o status online de todas as URLs de download na lista. |
-| **Utilitários** | Inclui opções para visualizar o log de instalação e limpar a pasta de instaladores. |
+| **`subprocess`** | Execução e controle de comandos de instalação/desinstalação externos (`.exe` com `/S` ou `.msi` com `/qn`). |
+| **`requests` e `tqdm`** | Gerenciamento de requisições HTTP e download de binários, com rastreamento visual do progresso. |
+| **`winreg`** | Acesso e leitura das chaves de desinstalação no Registro (`HKEY_LOCAL_MACHINE`, `HKEY_CURRENT_USER`) para verificação de status. |
+| **`colorama`** | Aplica formatação ANSI (cores e estilos) para melhorar a experiência e legibilidade no console do Windows. |
+| **`tkinter`** | Utilizado para abrir a caixa de diálogo nativa do sistema para seleção de arquivos JSON externos (opção [J]). |
 
-## 🛠️ Requisitos
+### Fluxos de Operação
 
-* Sistema Operacional: Windows.
-* Permissões de Administrador (O programa solicita automaticamente).
+* **Instalação Silenciosa em Lote:** Baixa e executa a instalação sem interação.
+* **Desinfecção Total:** Fluxo de duas fases: desinstalação silenciosa completa seguida por uma reinstalação limpa.
+* **Gerenciamento de Lista (JSON):** Manipulação direta e interativa da lista de softwares e seus parâmetros de instalação/desinstalação.
 
-## 🚀 Como Executar
+## ⬇️ Download e Implementação
 
-1.  Baixe o executável `Standard Deploy SD.exe`
-2.  Execute o arquivo como Administrador e utilize o menu para selecionar as operações desejadas.
+A versão compilada (stand-alone) não requer dependências Python no sistema de destino.
+
+### 🔗 Link de Download (Executável Stand-Alone)
+
+[**BAIXE Standard Deploy (SD) - vX.X**](https://bit.ly/4qQYp0a)
+
+### 📋 Instruções Operacionais
+
+1.  **Elevação de Privilégio:** Inicie o arquivo **`Standard_Deploy_SD.exe`** **obrigatoriamente** com privilégios de Administrador.
+2.  **Seleção de Fluxo:** Utilize as opções do menu (ex: **[1] FLUXO COMPLETO** ou **[D] DESINFECÇÃO TOTAL**) para iniciar a automação.
+3.  **Auditoria:** Consulte a opção **[6]** no menu para visualizar o **`log_instalacao.txt`** e rastrear códigos de retorno e falhas operacionais.
+
+---
+
+## 💻 Instruções de Compilação e Desenvolvimento
+
+Para quem deseja clonar o repositório e rodar o script diretamente ou gerar o próprio executável.
+
+### Instalação de Bibliotecas Python (Requerimentos)
+
+Para rodar o script a partir do código-fonte (`.py`), você precisará das seguintes bibliotecas. Instale-as usando `pip`:
+
+```bash
+pip install colorama requests tqdm beautifulsoup4
