@@ -36,7 +36,7 @@ A versão compilada (stand-alone) não requer dependências Python no sistema de
 
 ### 🔗 Link de Download (Executável Stand-Alone)
 
-[**BAIXE Standard Deploy (SD) - v1.0**](https://bit.ly/4qQYp0a)
+[**BAIXE Standard Deploy (SD) - v1.0**](https://1024terabox.com/s/1xt_eGLdiIQLrHFQFMMnT7w)
 
 ### 📋 Instruções Operacionais
 
